@@ -1,0 +1,8 @@
+services:
+    renowaze_bad_word_detector_driver:
+        class: RenowazeBundle\Annotation\BadWordDetectorDriver
+        tags:
+          - { name: doctrine.event_listener, event: prePersist }
+          - { name: doctrine.event_listener, event: preUpdate }
+        arguments:
+          - "@annotation_reader"
